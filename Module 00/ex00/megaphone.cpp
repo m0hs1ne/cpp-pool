@@ -9,7 +9,7 @@ int main(int ac, char **av)
         std::string str = "";
         for (int i = 1; i < ac; i++)
         {
-            for (size_t j = 0; j < strlen(av[i]); j++)
+            for (unsigned int j = 0; j < strlen(av[i]); j++)
                 str += toupper(av[i][j]);
         }
         std::cout <<  str << std::endl;

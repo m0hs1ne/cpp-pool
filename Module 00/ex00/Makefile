@@ -1,3 +1,11 @@
+NC = \033[0m
+RED = \033[0;91m
+ORANGE = \033[93m
+GREEN = \033[0;92m
+PURPLE = \033[0;95m
+BLUE = \033[0;34m
+BOLD = \033[1m
+
 NAME = megaphone
 
 OBJS = megaphone.o
@@ -11,11 +19,11 @@ RM	= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -g  -std=c++98
 
 $(NAME): $(OBJS)
-		@-$(CC) $(CFLAGS) $(OBJS) $(HEADER) -o $(NAME)
+		@-$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS): $(SRC)
 		@$(CC) $(CFLAGS) -c $< -o $@
-		@echo "Compiled "$<" successfully!"
+		@echo "${GREEN} Compiled "$<" successfully!\n${NC}"
 
 all: $(NAME)
 
