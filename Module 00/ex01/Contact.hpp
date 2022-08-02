@@ -15,5 +15,7 @@ class Contact
         std::string darksecret;
 };
 
+Contact		add_contact(void);
+void	search_contact(class Phonebook *book, int *i);
 
 #endif
