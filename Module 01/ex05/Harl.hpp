@@ -12,7 +12,7 @@ class Harl
         void error(void);
         void warning(void);
     public:
-        void complain(const char * level);
+        void complain(std::string level);
 };
 
 
