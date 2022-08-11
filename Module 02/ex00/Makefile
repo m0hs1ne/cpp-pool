@@ -7,7 +7,7 @@ BLUE = \033[0;34m
 BOLD = \033[1m
 
 SRCS		=	./main.cpp \
-				./Fixed.cpp \
+				./Fixed.cpp 
 
 NAME		= Fixed
 
