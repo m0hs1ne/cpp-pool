@@ -39,7 +39,9 @@ public:
     Fixed operator--(int);
 
     static const Fixed &min(Fixed const &v1, Fixed const &v2);
+    static Fixed &min(Fixed &v1, Fixed &v2);
     static const Fixed &max(Fixed const &v1, Fixed const &v2);
+    static Fixed &max(Fixed &v1, Fixed &v2);
 
 };
 std::ostream &operator<<(std::ostream &out, Fixed const &fixed);
