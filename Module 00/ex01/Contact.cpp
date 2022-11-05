@@ -16,7 +16,7 @@ void	print_strngap(std::string str)
 	int i = 0;
 
 	std::cout << str;
-	while ((unsigned long)i < (10 - str.length()))
+	while (i < (10 - str.length()))
 	{
 		std::cout << " ";
 		i++;
