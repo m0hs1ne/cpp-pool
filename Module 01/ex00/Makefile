@@ -31,7 +31,6 @@ all:		${NAME}
 ${NAME}:	${OBJS}
 			@${CC} ${CFLAGS}  -o ${NAME} $(OBJS)
 			@echo "${GREEN}Zombie program has been created\n${NC}"
-			@${RM} $(OBJS)
 
 clean:
 			@${RM} ${OBJS}
