@@ -8,19 +8,15 @@ class Fixed
 {
 
 	public:
-
 		Fixed();
 		Fixed( Fixed const & src );
 		~Fixed();
 		Fixed &		operator=( Fixed const & rhs );
-		int getRawBits(void);
+		int getRawBits(void) const;
 		void setRawBits(int const raw);
-
 	private:
 		int nValue;
 		static const int fBits;
 
 };
-
-
 #endif /* *********************************************************** FIXED_H */
