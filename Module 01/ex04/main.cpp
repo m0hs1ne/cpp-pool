@@ -34,17 +34,12 @@ int main(int ac, char **av)
     outFile.open(out_file);
     while(getline(inFile, line))
     {
-        if (line.find(s1) != std::string::npos)
+        while (line.find(s1) != std::string::npos)
         {
             line.insert(line.find(s1), s2);
             line.erase(line.find(s1), s1.length());
         }
         outFile << line << std::endl;
-    }
-    if(line.empty())
-    {
-        std::cout << "empty file " << in_file << std::endl;
-        return (1);
     }
     inFile.close();
     outFile.close();
