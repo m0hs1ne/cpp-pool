@@ -34,6 +34,12 @@ class Fixed
 		Fixed &		operator--(void);
 		Fixed		operator++(int);
 		Fixed		operator--(int);
+
+		static Fixed &		max(Fixed &v1, Fixed &v2);
+		static Fixed &		min(Fixed &v1, Fixed &v2);
+		static Fixed const & max(Fixed const &v1,Fixed const &v2);
+		static Fixed const & min(Fixed const &v1,Fixed const &v2);
+
 	private:
 		int nValue;
 		static const int fBits;
