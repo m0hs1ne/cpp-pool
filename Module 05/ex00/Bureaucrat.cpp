@@ -41,7 +41,10 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	if (this != &rhs)
+	{
+		(std::string) this->_name = rhs._name;
 		this->_grade = rhs._grade;
+	}
 	return *this;
 }
 
