@@ -1,156 +1,103 @@
 #include "Array.hpp"
 
-#include <iostream>
-
-#define MAX_VAL 750
-int main(int, char **)
+int main()
 {
-    Array<int> numbers(MAX_VAL);
-    int *mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+    Array<int> a(10);
+
+    for (int i = 0; i < 10; ++i)
     {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    // SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
+        a[i] = i;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
+    for (int i = 0; i < 10; ++i)
     {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
+        std::cout << a[i] << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    Array<int> b(a);
+
+    for (int i = 0; i < 10; ++i)
     {
-        numbers[i] = rand();
+        std::cout << b[i] << std::endl;
     }
-    delete[] mirror; //
-    return 0;
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    Array<int> c(5);
+
+    c = a;
+
+    for (int i = 0; i < 10; ++i)
+    {
+        std::cout << c[i] << std::endl;
+    }
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    std::cout << a.size() << std::endl;
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    Array<std::string> d(3);
+
+    d[0] = "Hello";
+    d[1] = "World";
+    d[2] = "!";
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::cout << d[i] << " ";
+    }
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    Array<std::string> e(d);
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::cout << e[i] << " ";
+    }
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    Array<std::string> f(2);
+
+    f = d;
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::cout << f[i] << " ";
+    }
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    std::cout << d.size() << std::endl;
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
+
+    Array<std::string> g;
+
+    std::cout << g.size() << std::endl;
+
+    std::cout << std::endl
+              << "***********************" << std::endl
+              << std::endl;
 }
-
-// int main()
-// {
-//     Array<int> a(10);
-
-//     for (int i = 0; i < 10; ++i)
-//     {
-//         a[i] = i;
-//     }
-
-//     for (int i = 0; i < 10; ++i)
-//     {
-//         std::cout << a[i] << std::endl;
-//     }
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     Array<int> b(a);
-
-//     for (int i = 0; i < 10; ++i)
-//     {
-//         std::cout << b[i] << std::endl;
-//     }
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     Array<int> c(5);
-
-//     c = a;
-
-//     for (int i = 0; i < 10; ++i)
-//     {
-//         std::cout << c[i] << std::endl;
-//     }
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     std::cout << a.size() << std::endl;
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     Array<std::string> d(3);
-
-//     d[0] = "Hello";
-//     d[1] = "World";
-//     d[2] = "!";
-
-//     for (int i = 0; i < 3; ++i)
-//     {
-//         std::cout << d[i] << " ";
-//     }
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     Array<std::string> e(d);
-
-//     for (int i = 0; i < 3; ++i)
-//     {
-//         std::cout << e[i] << " ";
-//     }
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     Array<std::string> f(2);
-
-//     f = d;
-
-//     for (int i = 0; i < 3; ++i)
-//     {
-//         std::cout << f[i] << " ";
-//     }
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     std::cout << d.size() << std::endl;
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-
-//     Array<std::string> g;
-
-//     std::cout << g.size() << std::endl;
-
-//     std::cout << std::endl
-//               << "***********************" << std::endl
-//               << std::endl;
-// }
