@@ -32,8 +32,6 @@ void Span::addNumber(int n)
 
 void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    std::cout << "size: " << _v.size() << std::endl;
-    std::cout << "n: " << _n << std::endl;
     if (_v.size() + (end - begin) > _n)
         throw FullException();
     _v.insert(_v.end(), begin, end);
