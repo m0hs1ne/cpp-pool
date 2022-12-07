@@ -10,9 +10,9 @@ class Span
 private:
     std::vector<int> _v;
     unsigned int _n;
-    Span();
 
 public:
+    Span();
     Span(unsigned int n);
     Span(Span const &src);
     ~Span();
