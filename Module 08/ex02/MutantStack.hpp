@@ -15,7 +15,7 @@ public:
     MutantStack &operator=(MutantStack const &rhs)
     {
         if (this != &rhs)
-            std::stack<T>::operator=(rhs);
+            operator=(rhs);
         return *this;
     }
 
@@ -23,11 +23,11 @@ public:
 
     iterator begin()
     {
-        return std::stack<T>::c.begin();
+        return this->c.begin();
     }
     iterator end()
     {
-        return std::stack<T>::c.end();
+        return this->c.end();
     }
 };
 
