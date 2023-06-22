@@ -1,45 +1,44 @@
 #include "../inc/BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(): exchange(std::map<std::string, float>())
-{
+BitcoinExchange::BitcoinExchange() {};
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+    this->db = other.db;
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : exchange(other.exchange)
-{
-}
-
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
-{
-    if(this != &other)
-        this->exchange = other.exchange;
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
+    this->db = other.db;
     return *this;
 }
 
-BitcoinExchange::BitcoinExchange(std::map<std::string, float> map) : exchange(map)
-{
+BitcoinExchange::~BitcoinExchange() {};
+
+int BitcoinExchange::loadDB(std::string dbPath) {
+    std::ifstream dbFile(dbPath.c_str());
+    if (!dbFile.is_open()) {
+        std::cerr << "Error: could not open file " << dbPath << std::endl;
+        return 0;
+    }
+    std::string line;
+    while (std::getline(dbFile, line)) {
+        std::string::size_type pos = line.find(",");
+        std::string key = line.substr(0, pos);
+        std::string valueStr = line.substr(pos + 1);
+        float value = atof(valueStr.c_str());
+        this->db[key] = value;
+    }
+    dbFile.close();
+    return 1;
 }
 
-BitcoinExchange::BitcoinExchange(std::string dataFileName) : exchange(std::map<std::string, float>())
-{
-    std::map<std::string, float> data;
-    std::fstream dataFile(dataFileName.c_str());
-    if(dataFile.fail())
-        throw invalidFile();
-    std::string line;
-    std::string name;
-    float price;
-    while(std::getline(dataFile, line))
-    {
-        if(line == "date,exchange_rate")
-            continue;
-        if(line.find(',') == std::string::npos)
-            throw precede();
-        name = line.substr(0, line.find(','));
-        price = std::stof(line.substr(line.find(',') + 1));
-        data[name] = price;
+void BitcoinExchange::printDB() {
+    for (std::map<std::string, float>::iterator it = this->db.begin(); it != this->db.end(); it++) {
+        std::cout << it->first << " : " << it->second << std::endl;
     }
 }
 
-BitcoinExchange::~BitcoinExchange()
+void BitcoinExchange::printData(std::string date, float value)
 {
+    double result = this->db.lower_bound(date)->second * value;
+    std::cout << std::fixed << std::setprecision(2) << date << " => " << value << " = " << result << std::endl;
 }

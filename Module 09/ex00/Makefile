@@ -6,15 +6,15 @@ PURPLE = \033[0;95m
 BLUE = \033[0;34m
 BOLD = \033[1m
 
-SRCS		=	./src/main.cpp 
+SRCS		=	./src/main.cpp ./src/BitcoinExchange.cpp
 
 NAME		= btc
 
-CC			= clang++
+CC			= c++
 
 RM			= rm -f
 
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 
 all:		${NAME}
