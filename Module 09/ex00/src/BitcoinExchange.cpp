@@ -40,5 +40,5 @@ void BitcoinExchange::printDB() {
 void BitcoinExchange::printData(std::string date, float value)
 {
     double result = this->db.lower_bound(date)->second * value;
-    std::cout << std::fixed << std::setprecision(2) << date << " => " << value << " = " << result << std::endl;
+    std::cout << std::setprecision(2) << date << " => " << value << " = " << result << std::endl;
 }

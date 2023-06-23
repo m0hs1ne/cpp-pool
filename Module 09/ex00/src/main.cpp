@@ -130,17 +130,20 @@ int main(int ac, char **av)
             if (!date)
             {
                 std::cerr << "Error: Invalid input => " << line << std::endl;
+                delete[] cstr;
                 continue;
             }
             char *value = strtok(NULL, " |");
             if (!value)
             {
                 std::cerr << "Error: Invalid input => " << line << std::endl;
+                delete[] cstr;
                 continue;
             }
             if(!checkValueStr(value))
             {
-                std::cerr << "Error: Invalid input => " << line << std::endl;
+                std::cerr << "Error: Invalid input => " << value << std::endl;
+                delete []cstr;
                 continue;
             }
             int a = 0;
