@@ -16,7 +16,6 @@ BitcoinExchange::~BitcoinExchange() {};
 int BitcoinExchange::loadDB(std::string dbPath) {
     std::ifstream dbFile(dbPath.c_str());
     if (!dbFile.is_open()) {
-        std::cerr << "Error: could not open file " << dbPath << std::endl;
         return 0;
     }
     std::string line;

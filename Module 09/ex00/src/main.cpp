@@ -93,6 +93,7 @@ int main(int ac, char **av)
     if (!exchange.loadDB("./files/data.csv"))
     {
         std::cerr << "Error: Could not load database." << std::endl;
+        return 0;
     }
     std::ifstream file(av[1]);
     if (!file.is_open())
