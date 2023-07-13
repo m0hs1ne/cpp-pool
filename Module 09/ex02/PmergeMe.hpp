@@ -27,8 +27,6 @@ public:
     void fillD(int num);
     std::vector<int> getVNums() const;
     std::deque<int> getDNums() const;
-    double getElapsedTimeV() const;
-    double getElapsedTimeD() const;
 };
 
 #endif

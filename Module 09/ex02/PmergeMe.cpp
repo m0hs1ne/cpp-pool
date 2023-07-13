@@ -108,13 +108,3 @@ std::deque<int> PmergeMe::getDNums() const
 {
     return this->dNums;
 }
-
-double PmergeMe::getElapsedTimeV() const
-{
-    return this->elapsedTimeV;
-}
-
-double PmergeMe::getElapsedTimeD() const
-{
-    return this->elapsedTimeD;
-}
